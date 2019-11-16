@@ -1,0 +1,21 @@
+$screen-landscape: 600px;
+$screen-tablet: 768px;
+$screen-desktop: 992px;
+
+@mixin landscape {
+	@media (min-width: $screen-landscape) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: $screen-tablet) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $screen-desktop) {
+		@content;
+	}
+}
