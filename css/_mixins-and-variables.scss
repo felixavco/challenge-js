@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 $black: #333;
 $male: hsla(209, 100%, 50%, 0.5);
 $female: hsla(303, 100%, 50%, 0.5);
@@ -13,4 +15,5 @@ $female: hsla(303, 100%, 50%, 0.5);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
