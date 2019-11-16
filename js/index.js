@@ -7,8 +7,9 @@
         const post = posts.filter(post => post.id === id)[0]
         const firstName = name.split(' ')[0].toLowerCase()
         const url = `https://api.genderize.io/?name=${firstName}`
-        const { gender } = await getData(url)
-        const avatar = `https://joeschmoe.io/api/v1/${!gender ? 'male' : gender}/${id}`
+        let { gender } = await getData(url)
+        gender = !gender ? 'male' : gender
+        const avatar = `https://joeschmoe.io/api/v1/${gender}/${id}`
         container.innerHTML += cardTemplate({ name, post, avatar, gender })
     })
 
