@@ -3,6 +3,14 @@
     const users = await getData('https://jsonplaceholder.typicode.com/users')
     const posts = await getData('https://jsonplaceholder.typicode.com/posts')
 
+    users.forEach(async ({ name, id }) => {
+        const post = posts.filter(post => post.id === id)[0]
+        const firstName = name.split(' ')[0].toLowerCase()
+        const url = `https://api.genderize.io/?name=${firstName}`
+        const { gender } = await getData(url)
+        const avatar = `https://joeschmoe.io/api/v1/${!gender ? 'male' : gender}/${id}`
+        container.innerHTML += cardTemplate({ name, post, avatar, gender })
+    })
 
     async function getData(url) {
         try {
@@ -14,7 +22,7 @@
         }
     }
 
-    function cardTemplate({ }) {
+    function cardTemplate({ name, post, avatar, gender }) {
         return `
             <div class="card ${gender}">
                 <div class="card-header">
