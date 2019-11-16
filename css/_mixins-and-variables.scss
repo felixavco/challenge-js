@@ -1,0 +1,16 @@
+$black: #333;
+$male: hsla(209, 100%, 50%, 0.5);
+$female: hsla(303, 100%, 50%, 0.5);
+
+@mixin customBoxShadow($color) {
+  box-shadow: 1px 1px 25px $color;
+  &:hover {
+    box-shadow: 0px 0px 5px $color;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
